@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    $db = config('db');
+    $comics = $db['comics'];
+    return view('home', compact('comics'));
+});
+
+Route::get('/comics', function() {
+    return view('comics');
+});
+
+Route::get('/credits', function() {
+    return view('credits');
 });
