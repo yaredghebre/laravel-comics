@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ComicController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CreditController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-    $db = config('db');
-    $comics = $db['comics'];
-    return view('home', compact('comics'));
-});
-
-Route::get('/comics', function() {
-    return view('comics');
-});
-
-Route::get('/credits', function() {
-    return view('credits');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/comics', [ComicController::class, 'index'])->name('comics');
+Route::get('/credits', [CreditController::class, 'index'])->name('credits');

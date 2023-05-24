@@ -9,12 +9,12 @@
 
     <div class="cards-container container">
         <div class="row row-cols-6 g-3">
-            @foreach ($comics as $card)
+            @foreach ($comics as $item)
                 <div class="col">
                     <div class="card">
-                        <img src="{{ $card['thumb']}}" alt="">
+                        <img src="{{ $item['thumb']}}" alt="">
                     </div>
-                    <h5 class="text-white text-center">{{ $card['series'] }}</h5>
+                    <h5 class="text-white text-center">{{ $item['series'] }}</h5>
 
                 </div>
             @endforeach
